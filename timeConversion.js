@@ -12,6 +12,9 @@ function timeConversion(s) {
   if (s.includes("AM") && s.substring(0, 2) === "12") {
     return "00" + s.substring(2, 8);
   }
+  if (s.includes("AM")) {
+    return s.substring(0, 8);
+  }
   if (s.includes("PM")) {
     let firstTwoNumbers = s.substring(0, 2);
     let addedNumber = +firstTwoNumbers + 12;
