@@ -10,28 +10,55 @@
  *  6. INTEGER_ARRAY oranges
  */
 
+// function countApplesAndOranges(s, t, a, b, apples, oranges) {
+//   let countApples = 0;
+//   let countOranges = 0;
+
+//   //   [ 7, 8, 9, 10 ]
+
+//   let addedApple = apples.map((apple) => apple + a);
+//   //   console.log(addedApple);
+//   //   [6, 7, 0];
+
+//   let addedOrange = oranges.map((orange) => orange + b);
+//   //   console.log(addedOrange);
+//   //   [15, 10, 8];
+
+//   for (let i = 0; i <= addedApple.length; i++) {
+//     if (addedApple[i] >= s && addedApple[i] <= t) {
+//       countApples++;
+//     }
+//   }
+
+//   for (let i = 0; i <= addedOrange.length; i++) {
+//     if (addedOrange[i] >= s && addedOrange[i] <= t) {
+//       countOranges++;
+//     }
+//   }
+
+//   console.log(countApples);
+//   console.log(countOranges);
+
+//   //   console.log(countApples);
+//   //   console.log(countOranges);
+// }
+
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
   let countApples = 0;
   let countOranges = 0;
 
-  //   [ 7, 8, 9, 10 ]
+  let addedApples = apples.map((apple) => apple + a);
 
-  let addedApple = apples.map((apple) => apple + a);
-  //   console.log(addedApple);
-  //   [6, 7, 0];
+  let addedOranges = oranges.map((orange) => orange + b);
 
-  let addedOrange = oranges.map((orange) => orange + b);
-  //   console.log(addedOrange);
-  //   [15, 10, 8];
-
-  for (let i = 0; i <= addedApple.length; i++) {
-    if (addedApple[i] >= s && addedApple[i] <= t) {
+  for (addedApple of addedApples) {
+    if (addedApple >= s && addedApple <= t) {
       countApples++;
     }
   }
 
-  for (let i = 0; i <= addedOrange.length; i++) {
-    if (addedOrange[i] >= s && addedOrange[i] <= t) {
+  for (addedOrange of addedOranges) {
+    if (addedOrange >= s && addedOrange <= t) {
       countOranges++;
     }
   }
