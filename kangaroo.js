@@ -13,6 +13,26 @@ function kangaroo(x1, v1, x2, v2) {
   return complete ? "YES" : "NO";
 }
 
+x1= 0 + 2 = 2
+x1= 2 + 2 = 4
+x1= 4 + 2 = 6
+x1= 6 + 2 = 8
+
+
+
+_____________
+x2= 5 + 3 = 8
+x2= 8 + 3 = 11
+x2= 11 + 3 = 14
+x2= 14 + 3 = 17
+
+
+
+
+
+
+
+
 // x1 = starting location of the "1st" kangaroo
 
 // x2 - starting location of the "2nd" kangaroo
@@ -27,6 +47,8 @@ x2 = 5;
 v2 = 3;
 
 console.log(kangaroo(x1, v1, x2, v2));
+console.log(kangaroo(x1, v1, x2, v2));
+
 
 // 2;
 
