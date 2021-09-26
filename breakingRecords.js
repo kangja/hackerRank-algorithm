@@ -13,15 +13,25 @@ function breakingRecords(scores) {
   let highestNumberCount = 0;
   let lowestNUmbewrCount = 0;
 
-  for (let i = 1; i < scores.length; i++) {
-    if (scores[i] > highestNumber) {
-      highestNumber = scores[i];
+  //   for (let i = 1; i < scores.length; i++) {
+  //     if (scores[i] > highestNumber) {
+  //       highestNumber = scores[i];
+  //       highestNumberCount++;
+  //     } else if (scores[i] < lowestNumber) {
+  //       lowestNumber = scores[i];
+  //       lowestNUmbewrCount++;
+  //     }
+  //   }
+
+  scores.forEach((score) => {
+    if (score > highestNumber) {
+      highestNumber = score;
       highestNumberCount++;
-    } else if (scores[i] < lowestNumber) {
-      lowestNumber = scores[i];
+    } else if (score < lowestNumber) {
+      lowestNumber = score;
       lowestNUmbewrCount++;
     }
-  }
+  });
 
   console.log(highestNumberCount, lowestNUmbewrCount);
   //   console.log(lowestNUmbewrCount);
