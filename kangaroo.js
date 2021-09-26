@@ -47,7 +47,6 @@ x2 = 5;
 v2 = 3;
 
 console.log(kangaroo(x1, v1, x2, v2));
-console.log(kangaroo(x1, v1, x2, v2));
 
 
 // 2;
