@@ -22,6 +22,10 @@ function birthday(s, d, m) {
 }
 
 let s = [1, 2, 1, 3, 2];
+[0,1] .slice(0, 2)
+[1,2] .slice(1, 3)
+[2,3] .slice(2, 4)
+[3,4] .slice(3, 5)
 let m = 2;
 let d = 3;
 
