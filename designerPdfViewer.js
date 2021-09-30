@@ -7,7 +7,7 @@
  *  2. STRING word
  */
 
-function designerPdfViewer() {
+function designerPdfViewer(h, word) {
   // Write your code here
 
   //   initialize alphabets
@@ -18,14 +18,6 @@ function designerPdfViewer() {
     alphabets.push(String.fromCharCode(i));
   }
 
-  //   initialize emptyArray
-  //   let emptyArray =
-
-  let h = [
-    1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-    7,
-  ];
-
   // //   how to attach numbers to alphabet?
   //   h = [a:1, b:3, c:1, d: 3 ... etc ]
   let output = h.map(function (obj, index) {
@@ -34,28 +26,35 @@ function designerPdfViewer() {
     return myobj;
   });
 
-  console.log(output);
-
   //   split words by each letter
-  let splitAlphabet = [];
-  let word = "zara";
+  //   let word = "zara";
   let splitWord = word.split("");
-  console.log(splitWord);
 
-  //   find the  value/number of [z, a, r, a ] from emptyArray. if there are matching keys from the array, return the values
+  // if there are matching keys from the array, return the values
   //   it should return [7, 1, 5, 1]
+  let filtered = output.filter((item) =>
+    splitWord.includes(Object.keys(item)[0])
+  );
 
-  let values = splitWord.map((k) => output[k]);
-  console.log(values);
+  //   how to return an array of objects' value only.
+  let numbersOnly = filtered.reduce(
+    (acc, obj) => [...acc, Object.values(obj).map((y) => y)],
+    []
+  );
 
-  // use the largest number and multiply that by the length of the given word and return the value.
+  // find the largest number from the array
+  let largestNumber = Math.max(...numbersOnly);
+
+  //  multiply the largest number with the word.length
+  let finalResult = largestNumber * word.length;
+  //   console.log(finalResult);
+  return finalResult;
 }
 
-// let h = 1;
-// let h = [
-//   1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7,
-// ];
-// let word = "zaba";
-designerPdfViewer();
+let h = [
+  1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7,
+];
+let word = "zaba";
+console.log(designerPdfViewer(h, word));
 
 // let word = zaba;
