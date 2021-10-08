@@ -5,21 +5,21 @@
  * The function accepts INTEGER n as parameter.
  */
 
-function utopianTree(n) {
-  // Write your code here
+// function utopianTree(n) {
+//   // Write your code here
 
-  let height = 1;
+//   let height = 1;
 
-  for (let i = 0; i < n; i++) {
-    if (i % 2 == 0) {
-      height = height * 2;
-    } else {
-      height = height + 1;
-    }
-  }
+//   for (let i = 0; i < n; i++) {
+//     if (i % 2 === 0) {
+//       height = height * 2;
+//     } else {
+//       height = height + 1;
+//     }
+//   }
 
-  console.log(height);
-}
+//   console.log(height);
+// }
 
 // // if n = 0, then height = 1
 // // if n = 1, then height = 2
@@ -28,20 +28,22 @@ function utopianTree(n) {
 // // if n = 4, then height = 7
 // // if n = 5, then height = 14
 
-utopianTree(5);
+// 2nd solution
+function utopianTree(n) {
+  let cycle = 1;
+  let height = 1;
 
-// function utopianTree(n) {
-//   let height = 1;
+  while (cycle <= n) {
+    if (cycle % 2 !== 0) {
+      height = height * 2;
+      //   height *= 2;
+    } else {
+      height++;
+    }
+    cycle++;
+  }
 
-//   for (let i = 0; i < n; i++) {
-//     if (i % 2 == 0) {
-//       height *= 2;
-//     } else {
-//       height += 1;
-//     }
-//   }
+  return height;
+}
 
-//   return height;
-// }
-
-// console.log(utopianTree(3));
+console.log(utopianTree(5));
