@@ -2,7 +2,7 @@
 
 // the first game will cost "p" dollars and every subsequent game will cost "d" dollars less than the previous one.
 
-// ^above pattern continues until the cost becomes less than or equal to "m" dollars. And after that, every game will cost "m" dollars.
+// ^above pattern continues until the "cost" becomes less than or equal to "m" dollars. And after that, every game will cost "m" dollars.
 
 // when the "current price" <= "m", then start using "m" as a current price.
 
@@ -21,7 +21,6 @@
 // you can buy 5 games (20, 17, 14, 11, 8)
 
 // s >= (20 + 17 + 14 + 11 + 8)
-// s >= (p + (p-3) + etc...)
 
 // ************* example 2
 // p = 20 (price of the first game)
@@ -40,33 +39,38 @@
 // s = 85 (starting budget)
 // 20, 17, 14, 11, 8, 6,  is 5 <=6, yes so "6" becomes a new price.
 // console.log(20 + 17 + 14 + 11 + 8 + 6 + 6);
+// 82
 // return 7;
 
 function howManyGames(p, d, m, s) {
-  // create an emptyArray and push "p" to the emptyArray.
-  let emptyArray = [];
-  emptyArray.push(p);
-  // for the next value in emptyArray, subtract the previous value by "d". keep subtracting by "d" until the "current value" <= m;
-  for (let i = 1; i < 10; i++) {
-    emptyArray[i] = emptyArray[i - 1] - d;
+  let i = 0;
+  while (s >= 0) {
+    p = p > m ? p : m;
+    s = s - p;
+    if (p - d < m) {
+      p = m;
+    } else {
+      p = p - d;
+    }
+    i++;
   }
-  return emptyArray;
+  return i - 1;
 }
+
 let p = 20;
 let d = 3;
-console.log(howManyGames(p, d));
+let m = 6;
+let s = 70;
 
+console.log(howManyGames(p, d, m, s));
 // ************* example 1
 // p = 20 (price of the first game)
 // d = 3 (discount)
 // m = 6 (minimum cost of a game)
 // s = 70 (starting budget)
-//  8 <= m?
-// 20, 17, 14, 11, 8, 8-3=5(it should be 5, but since the current price(5) <= m (5 <= 6),  )
+// 8 <= m?
+// 20, 17, 14, 11, 8, 8-3=5(it should be 5, but since the current price(5) <= m (5 <= 6), starting at that position, start using "m" as value.  )
 // console.log(20 + 17 + 14 + 11 + 8);
 // 70;
 
 // you can buy 5 games (20, 17, 14, 11, 8)
-
-// s >= (20 + 17 + 14 + 11 + 8)
-// s >= (p + (p-3) + etc...)
